@@ -1,0 +1,16 @@
+{
+  "name": "smallilies",
+  "version": "1.0.0",
+  "author": "smallilies <smallilies@gmail.com>",
+  "repository": {
+    "url": "https://github.com/smallilies/smallilies"
+  },
+  "dependencies": {},
+  "description": "small JS utils",
+  "bugs": {
+    "url": "https://github.com/smallilies/smallilies/issues"
+  },
+  "homepage": "https://github.com/smallilies/smallilies",
+  "main": "index.js",
+  "license": "ISC"
+}
