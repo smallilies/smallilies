@@ -5,7 +5,10 @@ function shortenString(string, startingEnd, endingStart) {
         return '';
     if (string instanceof Error)
         string = string.message;
+    else if (Object.prototype.toString.call(string) == '[object Function]')
+        string = string.toString();
     else if (typeof(string) != 'string') {
+        string = JSON.parse(JSON.stringify(string));
         if (string.id || string._id || string.username || string.name || string.displayName || (string.emails && string.emails[0]) || (typeof(string.logged_in) != 'undefined')) {
             var user = string;
             var userString = '';
@@ -19,9 +22,7 @@ function shortenString(string, startingEnd, endingStart) {
                 user = userString;
             }
             return user;
-        } else if (Object.prototype.toString.call(string) == '[object Function]')
-            string = string.toString();
-        else
+        } else
             string = JSON.stringify(string);
     }
 
