@@ -1,8 +1,9 @@
 var elipsesChar = '…';
 
-function shortenString(string, startingEnd, endingStart) {
+function shortenString(string, startingEnd, endingStart, sep) {
     if (!string)
         return '';
+
     if (string instanceof Error)
         string = string.message;
     else if (Object.prototype.toString.call(string) == '[object Function]')
@@ -26,25 +27,13 @@ function shortenString(string, startingEnd, endingStart) {
             string = JSON.stringify(string);
     }
 
+    if (string.length <= (startingEnd + endingStart))
+        return string;
+
     // string = string.replace(/\n/g, ' ');
     // string = string.replace(/\r/g, ' ');
     // string = string.replace(/\s{1,}/g, ' ');
     string = string.replace(/[\n\r\s]+/g, ' ');
-
-    startingEnd = parseInt(startingEnd || 10);
-
-    if (!endingStart || (endingStart < 1 && endingStart > 0)) {
-        var totalLength = startingEnd;
-        var startingFraction = endingStart || (2 / 3);
-        startingEnd = parseInt(totalLength * startingFraction);
-        endingStart = parseInt(totalLength * (1 - startingFraction));
-    }
-
-    endingStart = parseInt(endingStart || 5);
-    if (endingStart == 1) {
-        startingEnd -= 1;
-        endingStart = 0;
-    }
 
     if (string.slice(-1) == '"')
         string = string.slice(0, -1);
@@ -65,10 +54,38 @@ function shortenString(string, startingEnd, endingStart) {
     if (string.slice(-1) == '/')
         string = string.slice(0, -1);
 
+
+
+    startingEnd = parseInt(startingEnd || 10);
+
+    if (!endingStart || (endingStart < 1 && endingStart > 0)) {
+        var totalLength = startingEnd;
+        var startingFraction = endingStart || (2 / 3);
+        startingEnd = parseInt(totalLength * startingFraction);
+        endingStart = parseInt(totalLength * (1 - startingFraction));
+    }
+
+    endingStart = parseInt(endingStart || 5);
+    if (endingStart == 1) {
+        startingEnd -= 1;
+        endingStart = 0;
+    }
+
     if (string.length <= (startingEnd + endingStart))
         return string;
 
-    return string.substr(0, startingEnd) + elipsesChar + string.substr(string.length - endingStart);
+    if (!sep) sep = elipsesChar
+
+    // console.log('startingEnd:', startingEnd);
+    // console.log('endingStart:', endingStart);
+
+    // var str1 = string.substr(0, startingEnd);
+    // var str2 = string.substr(endingStart);
+    // var str = str1 + str2;
+
+    var str = string.substr(0, startingEnd) + sep + string.substr(string.length - endingStart);
+
+    return str;
 }
 
 if (typeof(angular) != 'undefined' && angular.module)
