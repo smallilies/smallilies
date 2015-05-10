@@ -1,5 +1,5 @@
 /*
-    Adds a "last separator" argument to array.join
+    Adds a smart "last separator" argument to array.join
     [1,2,3].join(', ', ', and') //=> 1, 2, and 3
 */
 
