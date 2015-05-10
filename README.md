@@ -1,1 +1,4 @@
-Smallilies
+join
+deepIndexOf
+shortenString
+extend
