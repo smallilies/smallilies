@@ -11,5 +11,4 @@ globalize.globalize = function globalize_globalize() {
     globalize('globalize', globalize);
 }
 
-
 module.exports = globalize;
