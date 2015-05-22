@@ -5,7 +5,9 @@
   "repository": {
     "url": "https://github.com/smallilies/smallilies"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^2.9",
+    },
   "description": "small JS utils",
   "bugs": {
     "url": "https://github.com/smallilies/smallilies/issues"
