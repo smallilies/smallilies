@@ -6,14 +6,8 @@ module.exports = extend;
 //     clone: false,
 // };
 
-try {
-    console = require('unclog');
-} catch (err) {}
-
 function extend(options, dest, src1, src2 /*...*/ ) {
     var args = [].slice.call(arguments);
-
-    if (!options) return;
 
     if (typeof options == 'boolean')
         options = {

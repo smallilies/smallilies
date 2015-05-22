@@ -6,7 +6,7 @@
     "url": "https://github.com/smallilies/smallilies"
   },
   "dependencies": {
-    "bluebird": "^2.9",
+    "bluebird": "^2.9"
     },
   "description": "small JS utils",
   "bugs": {
