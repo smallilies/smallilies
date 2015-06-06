@@ -1,6 +1,6 @@
 {
   "name": "smallilies",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "smallilies <smallilies@gmail.com>",
   "repository": {
     "url": "https://github.com/smallilies/smallilies"
@@ -11,7 +11,7 @@
     "lodash": "^3.9",
     "moment": "^2.10",
     "uslug": "^1.0"
-    },
+  },
   "description": "small JS utils",
   "bugs": {
     "url": "https://github.com/smallilies/smallilies/issues"
