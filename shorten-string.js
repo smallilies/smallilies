@@ -17,7 +17,7 @@ function shortenString(string, startingEnd, endingStart, sep) {
                 user = userString = 'Anon';
             else {
                 if (user.username || user.name || user.displayName || (user.emails && user.emails[0]))
-                    userString += '[' + shortenString(user.username || user.name || user.displayName || (user.emails && user.emails[0])) + ']';
+                    userString += '[' + shortenString(user.username || user.user || user.name || user.displayName || (user.emails && user.emails[0])) + ']';
                 if (user.id || user._id)
                     userString += '(' + shortenString(user.id || user._id) + ')';
                 user = userString;
