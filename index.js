@@ -1,10 +1,25 @@
 var smallilies = module.exports = {};
-var join = smallilies.join = require('./array-join');
-var deepIndexOf = smallilies.deepIndexOf = require('./deep-index-of');
-var shortenString = smallilies.shortenString = require('./shorten-string');
-var extend = smallilies.extend = require('./extend');
-var globalize = smallilies.globalize = require('./globalize');
+smallilies.join = require('./array-join');
+smallilies.deepIndexOf = require('./deep-index-of');
+smallilies.shortenString = require('./shorten-string');
+smallilies.toShortString = require('./shorten-string');
+// smallilies.extend = smallilies.merge = require('./extend');
+smallilies.extend = require('lodash').extend;
+smallilies.merge = require('lodash').merge;
+smallilies.exists = function exists(variable) {
+    return (typeof variable != 'undefined');
+}
 
-var Promise = smallilies.Promise = require('bluebird');
+smallilies.globalize = require('./globalize');
 
+smallilies.fs = require('fs');
+// smallilies.path = require('path');
+smallilies.Path = require('path');
+smallilies.util = require('util');
+smallilies.URL = require('url');
 
+smallilies.async = require('async');
+smallilies.Promise = require('bluebird');
+smallilies._ = require('lodash');
+smallilies.moment = require('moment');
+smallilies.slug = require('uslug');
