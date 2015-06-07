@@ -10,6 +10,7 @@
     "bluebird": "^2.9",
     "lodash": "^3.9",
     "moment": "^2.10",
+    "titlecase": "^1.0",
     "uslug": "^1.0"
   },
   "description": "small JS utils",

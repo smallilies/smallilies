@@ -1,10 +1,9 @@
+var defineProperty = require('./define-property');
+
 function globalize(name, thing) {
     if (name && thing) {
-        Object.defineProperty(global, name, {
-            get: function() {
-                return thing;
-            },
-            configurable: true,
+        defineProperty(global, name, function() {
+            return thing;
         });
     } else {
         var smallilies = require('./');
