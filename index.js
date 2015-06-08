@@ -28,3 +28,6 @@ smallilies.moment = require('moment');
 smallilies.slug = require('uslug');
 
 smallilies.toTitleCase = require('titlecase');
+
+
+smallilies.Promise.promisifyAll(smallilies.fs);
