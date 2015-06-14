@@ -2,6 +2,7 @@ var smallilies = module.exports = {};
 
 smallilies.join = require('./array-join');
 smallilies.deepIndexOf = require('./deep-index-of');
+smallilies.matchIndexOf = require('./match-index-of');
 smallilies.shortenString = require('./shorten-string');
 smallilies.toShortString = require('./shorten-string');
 smallilies.exists = require('./exists');
