@@ -14,6 +14,7 @@ smallilies.merge = require('lodash').merge;
 
 
 smallilies.fs = require('fs');
+smallilies.exec = require('child_process').exec;
 // smallilies.path = require('path');
 smallilies.Path = require('path');
 smallilies.util = require('util');
