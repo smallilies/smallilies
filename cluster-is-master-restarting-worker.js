@@ -13,8 +13,5 @@ function isMasterRestartingWorker() {
 };
 module.exports = isMasterRestartingWorker;
 
-Object.defineProperty(cluster, 'isMasterRestartingWorker', {
-    get: isMasterRestartingWorker,
-    configurable: true,
-    enumerable: true,
-});
+var defineProperty = require('./define-property');
+defineProperty(cluster, 'isMasterRestartingWorker', isMasterRestartingWorker);
