@@ -16,6 +16,8 @@ smallilies.merge = require('lodash').merge;
 
 smallilies.fs = require('fs');
 smallilies.exec = require('child_process').exec;
+smallilies.cluster = require('cluster');
+require('./cluster-is-master-restarting-worker');
 // smallilies.path = require('path');
 smallilies.Path = require('path');
 smallilies.util = require('util');
