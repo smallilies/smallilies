@@ -1,5 +1,3 @@
-var defineProperty = require('./define-property');
-
 function globalize(name, thing) {
     if (!arguments.length) {
         var smallilies = require('./');
@@ -8,9 +6,7 @@ function globalize(name, thing) {
         return;
     }
     if (name && name.length && (typeof thing != 'undefined'))
-        defineProperty(global, name, function() {
-            return thing;
-        });
+        GLOBAL[name] = thing;
 }
 
 module.exports = globalize;
