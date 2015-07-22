@@ -29,8 +29,6 @@ function shortenString(string, startingEnd, endingStart, sep) {
             string = JSON.stringify(string);
     }
 
-    if (string.length <= (startingEnd + endingStart))
-        return string;
 
     // string = string.replace(/\n/g, ' ');
     // string = string.replace(/\r/g, ' ');
@@ -56,6 +54,9 @@ function shortenString(string, startingEnd, endingStart, sep) {
     if (string.slice(-1) == '/')
         string = string.slice(0, -1);
 
+
+    if (string.length <= (startingEnd + endingStart))
+        return string;
 
 
     startingEnd = parseInt(startingEnd || 10);
