@@ -1,38 +1,51 @@
-var smallilies = module.exports = {};
+var smallilies         = module.exports                = {};
 
-smallilies.join = require('./array-join');
-smallilies.deepIndexOf = require('./deep-index-of');
-smallilies.matchIndexOf = require('./match-index-of');
-smallilies.setTimeoutDebounce = require('./set-timeout-debounce');
-smallilies.shortenString = require('./shorten-string');
-smallilies.toShortString = require('./shorten-string');
-smallilies.exists = require('./exists');
-smallilies.defineProperty = require('./define-property');
-smallilies.globalize = require('./globalize');
+var join               = smallilies.join               = require('./array-join');
+var deepIndexOf        = smallilies.deepIndexOf        = require('./deep-index-of');
+var matchIndexOf       = smallilies.matchIndexOf       = require('./match-index-of');
+var setTimeoutDebounce = smallilies.setTimeoutDebounce = require('./set-timeout-debounce');
+var shortenString      = smallilies.shortenString      = require('./shorten-string');
+var toShortString      = smallilies.toShortString      = require('./shorten-string');
+var exists             = smallilies.exists             = require('./exists');
+var defineProperty     = smallilies.defineProperty     = require('./define-property');
+var globalize          = smallilies.globalize          = require('./globalize');
 
-smallilies.extend = require('lodash').extend;
-smallilies.merge = require('lodash').merge;
+var extend             = smallilies.extend             = require('lodash').extend;
+var merge              = smallilies.merge              = require('lodash').merge;
 
 
-smallilies.fs = require('fs');
-smallilies.exec = require('child_process').exec;
-smallilies.cluster = require('cluster');
+var os                 = smallilies.os                 = require('os');
+var fs                 = smallilies.fs                 = require('fs');
+var exec               = smallilies.exec               = require('child_process').exec;
+var cluster            = smallilies.cluster            = require('cluster');
+var assert             = smallilies.assert             = require('assert');
+var path               = smallilies.path               = require('path');
+var Path               = smallilies.Path               = require('path');
+var util               = smallilies.util               = require('util');
+var URL                = smallilies.URL                = require('url');
+var argv               = smallilies.argv               = process.argv.slice(2);
 require('./cluster-is-master-restarting-worker');
-// smallilies.path = require('path');
-smallilies.Path = require('path');
-smallilies.util = require('util');
-smallilies.URL = require('url');
 
-smallilies.async = require('async');
-smallilies.Promise = require('bluebird');
+var readline           = smallilies.readline           = require('readline').createInterface({input: process.stdin, output: process.stdout });
+var rl                 = smallilies.rl                 = readline;
 
-smallilies._ = require('lodash');
+smallilies.defineProperty(smallilies, 'cwd', process.cwd);
+smallilies.defineProperty(smallilies, 'tmpdir', os.tmpdir);
 
-smallilies.moment = require('moment');
+var async              = smallilies.async              = require('async');
+var Promise            = smallilies.Promise            = require('bluebird');
 
-smallilies.slug = require('uslug');
+var _                  = smallilies._                  = require('lodash');
 
-smallilies.toTitleCase = require('titlecase');
+var moment             = smallilies.moment             = require('moment');
 
+var slug               = smallilies.slug               = require('uslug');
 
-smallilies.Promise.promisifyAll(smallilies.fs);
+var yargs              = smallilies.yargs              = require('yargs').argv;
+
+var toTitleCase        = smallilies.toTitleCase        = require('titlecase');
+
+var noop               = smallilies.noop               = function noOperation(){}
+var nooperr            = smallilies.nooperr            = function noOpConErr(err){if(err)console.error(err);}
+
+smallilies.Promise.promisifyAll(fs);

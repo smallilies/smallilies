@@ -11,7 +11,8 @@
     "lodash": "^3.9",
     "moment": "^2.10",
     "titlecase": "^1.0",
-    "uslug": "^1.0"
+    "uslug": "^1.0",
+    "yargs": "^3.18"
   },
   "description": "small JS utils",
   "bugs": {
