@@ -1,49 +1,44 @@
-var smallilies         = module.exports                = {};
+var s = module.exports = {};
 
-var join               = smallilies.join               = require('./array-join');
-var deepIndexOf        = smallilies.deepIndexOf        = require('./deep-index-of');
-var matchIndexOf       = smallilies.matchIndexOf       = require('./match-index-of');
-var setTimeoutDebounce = smallilies.setTimeoutDebounce = require('./set-timeout-debounce');
-var tostr              = smallilies.tostr              = require('./tostr');
-var exists             = smallilies.exists             = require('./exists');
-var defineProperty     = smallilies.defineProperty     = require('./define-property');
-var globalize          = smallilies.globalize          = require('./globalize');
+// Custom
+s.join               = require('./array-join');
+s.deepIndexOf        = require('./deep-index-of');
+s.matchIndexOf       = require('./match-index-of');
+s.setTimeoutDebounce = require('./set-timeout-debounce');
+s.tostr              = require('./tostr');
+s.toShortString      = tostr; // bc
+s.shortenString      = tostr; // bc
+s.exists             = require('./exists');
+s.defineProperty     = require('./define-property');
+s.globalize          = require('./globalize');
 
-var extend             = smallilies.extend             = require('lodash').extend;
-var merge              = smallilies.merge              = require('lodash').merge;
+s.noop    = function noOperation() {}
+s.nooperr = function noOpConErr(err) {if (err) console.error(err); }
 
+// Popular
+s.async       = require('async');
+s.Promise     = require('bluebird');
+s._           = require('lodash');
+s.extend      = require('lodash').extend;
+s.merge       = require('lodash').merge;
+s.moment      = require('moment');
+s.slug        = require('uslug');
+s.yargs       = require('yargs').argv;
+s.toTitleCase = require('titlecase');
 
-var os                 = smallilies.os                 = require('os');
-var fs                 = smallilies.fs                 = require('fs');
-var exec               = smallilies.exec               = require('child_process').exec;
-var cluster            = smallilies.cluster            = require('cluster');
-var assert             = smallilies.assert             = require('assert');
-var path               = smallilies.path               = require('path');
-var Path               = smallilies.Path               = require('path');
-var util               = smallilies.util               = require('util');
-var URL                = smallilies.URL                = require('url');
-var argv               = smallilies.argv               = process.argv.slice(2);
+// NodeJS Built-ins
+s.os      = require('os');
+s.fs      = require('fs');
+s.exec    = require('child_process').exec;
+s.assert  = require('assert');
+s.path    = require('path');
+s.Path    = s.path;
+s.util    = require('util');
+s.URL     = require('url');
+s.argv    = process.argv.slice(2);
+s.rl      = require('readline').createInterface({input: process.stdin, output: process.stdout });
+s.cluster = require('cluster');
 require('./cluster-is-master-restarting-worker');
-
-var rl                 = smallilies.rl                 = require('readline').createInterface({input: process.stdin, output: process.stdout });
-
-smallilies.defineProperty(smallilies, 'cwd', process.cwd);
-smallilies.defineProperty(smallilies, 'tmpdir', os.tmpdir);
-
-var async              = smallilies.async              = require('async');
-var Promise            = smallilies.Promise            = require('bluebird');
-
-var _                  = smallilies._                  = require('lodash');
-
-var moment             = smallilies.moment             = require('moment');
-
-var slug               = smallilies.slug               = require('uslug');
-
-var yargs              = smallilies.yargs              = require('yargs').argv;
-
-var toTitleCase        = smallilies.toTitleCase        = require('titlecase');
-
-var noop               = smallilies.noop               = function noOperation(){}
-var nooperr            = smallilies.nooperr            = function noOpConErr(err){if(err)console.error(err);}
-
-smallilies.Promise.promisifyAll(fs);
+s.Promise.promisifyAll(s.fs);
+s.defineProperty(smallilies, 'cwd'    , s.process.cwd);
+s.defineProperty(smallilies, 'tmpdir' , s.os.tmpdir);
