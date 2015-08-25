@@ -6,8 +6,8 @@ s.deepIndexOf        = require('./deep-index-of');
 s.matchIndexOf       = require('./match-index-of');
 s.setTimeoutDebounce = require('./set-timeout-debounce');
 s.tostr              = require('./tostr');
-s.toShortString      = tostr; // bc
-s.shortenString      = tostr; // bc
+s.toShortString      = s.tostr; // bc
+s.shortenString      = s.tostr; // bc
 s.exists             = require('./exists');
 s.defineProperty     = require('./define-property');
 s.globalize          = require('./globalize');
@@ -40,5 +40,5 @@ s.rl      = require('readline').createInterface({input: process.stdin, output: p
 s.cluster = require('cluster');
 require('./cluster-is-master-restarting-worker');
 s.Promise.promisifyAll(s.fs);
-s.defineProperty(smallilies, 'cwd'    , s.process.cwd);
-s.defineProperty(smallilies, 'tmpdir' , s.os.tmpdir);
+s.defineProperty(s, 'cwd'   , process.cwd);
+s.defineProperty(s, 'tmpdir', s.os.tmpdir);
