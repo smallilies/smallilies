@@ -1,6 +1,6 @@
 var elipsesChar = '…';
 
-function shortenString(string, startingEnd, endingStart, sep) {
+function tostr(string, startingEnd, endingStart, sep) {
     if (!string)
         return '';
 
@@ -17,11 +17,11 @@ function shortenString(string, startingEnd, endingStart, sep) {
                 user = userString = 'Anon';
             else {
                 if (user.username || user.name || user.displayName || (user.emails && user.emails[0]))
-                    userString += '[' + shortenString(user.username || user.user || user.name || user.displayName || (user.emails && user.emails[0])) + ']';
+                    userString += '[' + tostr(user.username || user.user || user.name || user.displayName || (user.emails && user.emails[0])) + ']';
                 if (user.id || user._id)
-                    userString += '(' + shortenString(user.id || user._id) + ')';
+                    userString += '(' + tostr(user.id || user._id) + ')';
                 if (user.url)
-                    userString += '{' + shortenString(user.url, 20) + '}';
+                    userString += '{' + tostr(user.url, 20) + '}';
                 user = userString;
             }
             return user;
@@ -92,8 +92,8 @@ function shortenString(string, startingEnd, endingStart, sep) {
 }
 
 if (typeof(angular) != 'undefined' && angular.module)
-    angular.module('shortenString', []).filter('shortenString', function() {
-        return shortenString;
+    angular.module('tostr', []).filter('tostr', function() {
+        return tostr;
     });
 if (typeof(module) != 'undefined' && module.exports)
-    module.exports = shortenString;
+    module.exports = tostr;

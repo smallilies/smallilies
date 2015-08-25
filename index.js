@@ -4,8 +4,7 @@ var join               = smallilies.join               = require('./array-join')
 var deepIndexOf        = smallilies.deepIndexOf        = require('./deep-index-of');
 var matchIndexOf       = smallilies.matchIndexOf       = require('./match-index-of');
 var setTimeoutDebounce = smallilies.setTimeoutDebounce = require('./set-timeout-debounce');
-var shortenString      = smallilies.shortenString      = require('./shorten-string');
-var toShortString      = smallilies.toShortString      = require('./shorten-string');
+var tostr              = smallilies.tostr              = require('./tostr');
 var exists             = smallilies.exists             = require('./exists');
 var defineProperty     = smallilies.defineProperty     = require('./define-property');
 var globalize          = smallilies.globalize          = require('./globalize');
@@ -26,8 +25,7 @@ var URL                = smallilies.URL                = require('url');
 var argv               = smallilies.argv               = process.argv.slice(2);
 require('./cluster-is-master-restarting-worker');
 
-var readline           = smallilies.readline           = require('readline').createInterface({input: process.stdin, output: process.stdout });
-var rl                 = smallilies.rl                 = readline;
+var rl                 = smallilies.rl                 = require('readline').createInterface({input: process.stdin, output: process.stdout });
 
 smallilies.defineProperty(smallilies, 'cwd', process.cwd);
 smallilies.defineProperty(smallilies, 'tmpdir', os.tmpdir);

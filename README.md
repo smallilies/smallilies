@@ -1,4 +1,4 @@
 join
 deepIndexOf
-shortenString
+tostr
 extend
