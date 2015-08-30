@@ -10,5 +10,6 @@
 "moment"       : "^2.10",
 "titlecase"    : "^1.0",
 "uslug"        : "^1.0",
-"yargs"        : "^3.18"
+"yargs"        : "^3.18",
+"mkdirp"       : "0.5"
 }}

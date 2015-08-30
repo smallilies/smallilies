@@ -1,31 +1,5 @@
 var s = module.exports = {};
 
-// Custom
-s.join               = require('./array-join');
-s.deepIndexOf        = require('./deep-index-of');
-s.matchIndexOf       = require('./match-index-of');
-s.setTimeoutDebounce = require('./set-timeout-debounce');
-s.tostr              = require('./tostr');
-s.toShortString      = s.tostr; // bc
-s.shortenString      = s.tostr; // bc
-s.exists             = require('./exists');
-s.defineProperty     = require('./define-property');
-s.globalize          = require('./globalize');
-
-s.noop    = function noOperation() {}
-s.nooperr = function noOpConErr(err) {if (err) console.error(err); }
-
-// Popular
-s.async       = require('async');
-s.Promise     = require('bluebird');
-s._           = require('lodash');
-s.extend      = require('lodash').extend;
-s.merge       = require('lodash').merge;
-s.moment      = require('moment');
-s.slug        = require('uslug');
-s.yargs       = require('yargs').argv;
-s.toTitleCase = require('titlecase');
-
 // NodeJS Built-ins
 s.os      = require('os');
 s.fs      = require('fs');
@@ -42,3 +16,33 @@ require('./cluster-is-master-restarting-worker');
 s.Promise.promisifyAll(s.fs);
 s.defineProperty(s, 'cwd'   , process.cwd);
 s.defineProperty(s, 'tmpdir', s.os.tmpdir);
+
+// Popular
+s.async       = require('async');
+s.Promise     = require('bluebird');
+s._           = require('lodash');
+s.extend      = require('lodash').extend;
+s.merge       = require('lodash').merge;
+s.moment      = require('moment');
+s.slug        = require('uslug');
+s.yargs       = require('yargs').argv;
+s.toTitleCase = require('titlecase');
+
+s.fs.mkdirp     = require('mkdirp');
+s.fs.mkdirpSync = s.fs.mkdirp.sync.bind(s.fs.mkdirp);
+
+// Custom
+s.join               = require('./array-join');
+s.deepIndexOf        = require('./deep-index-of');
+s.matchIndexOf       = require('./match-index-of');
+s.setTimeoutDebounce = require('./set-timeout-debounce');
+s.tostr              = require('./tostr');
+s.toShortString      = s.tostr; // bc
+s.shortenString      = s.tostr; // bc
+s.exists             = require('./exists');
+s.defineProperty     = require('./define-property');
+s.globalize          = require('./globalize');
+
+s.noop    = function noOperation() {}
+s.nooperr = function noOpConErr(err) {if (err) console.error(err); }
+
