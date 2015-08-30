@@ -13,9 +13,6 @@ s.argv    = process.argv.slice(2);
 s.rl      = require('readline').createInterface({input: process.stdin, output: process.stdout });
 s.cluster = require('cluster');
 require('./cluster-is-master-restarting-worker');
-s.Promise.promisifyAll(s.fs);
-s.defineProperty(s, 'cwd'   , process.cwd);
-s.defineProperty(s, 'tmpdir', s.os.tmpdir);
 
 // Popular
 s.async       = require('async');
@@ -44,5 +41,10 @@ s.defineProperty     = require('./define-property');
 s.globalize          = require('./globalize');
 
 s.noop    = function noOperation() {}
-s.nooperr = function noOpConErr(err) {if (err) console.error(err); }
+s.errnoop = function LogErrOrNoop(err) {if (err) console.error(err); }
+s.nooperr = s.errnoop
 
+s.Promise.promisifyAll(s.fs);
+
+s.defineProperty(s, 'cwd'   , process.cwd);
+s.defineProperty(s, 'tmpdir', s.os.tmpdir);
