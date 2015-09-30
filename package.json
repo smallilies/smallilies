@@ -1,6 +1,6 @@
 {
 "name"         : "smallilies",
-"version"      : "1.2.0",
+"version"      : "1.2.1",
 "description"  : "Freuently used small utilities",
 "main"         : "index.js",
 "dependencies" : {
@@ -11,5 +11,5 @@
 "titlecase"    : "^1.0",
 "uslug"        : "^1.0",
 "yargs"        : "^3.18",
-"mkdirp"       : "0.5"
+"mkdirp"       : "^0.5"
 }}
