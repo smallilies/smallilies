@@ -49,8 +49,4 @@ s.Promise.promisifyAll(s.fs);
 s.defineProperty(s, 'cwd'   , process.cwd);
 s.defineProperty(s, 'tmpdir', s.os.tmpdir);
 
-s.Promise.some1 = function(arr) {
-    return s.Promise.some(arr, 1, {
-        concurrency: 1
-    });
-};
+require('./async+promise');
