@@ -5,7 +5,7 @@ function defineProperty(object, name, getter, setter, configurable, enumerable) 
         get: () => this['__' + name],
         // set: (v) => this['__' + name] = v,
         configurable: true,
-        enumerable: false,
+        enumerable: true,
     };
     if (getter instanceof Function) options.get = getter;
     if (setter instanceof Function) options.set = setter;
