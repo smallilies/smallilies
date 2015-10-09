@@ -32,7 +32,7 @@ Promise.series1 = function series1(arr) {
 
     function recurse(err) {
         if (err) errs.push(err);
-        if (i > limit) return errs;
+        if (i > limit) throw errs;
         return arr[i++]().catch(recurse);
     }
 };
