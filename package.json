@@ -1,6 +1,6 @@
 {
 "name"         : "smallilies",
-"version"      : "1.4.2",
+"version"      : "1.4.3",
 "description"  : "Freuently used small utilities",
 "main"         : "index.js",
 "dependencies" : {
