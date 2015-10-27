@@ -21,6 +21,7 @@ s._           = require('lodash');
 s.extend      = require('lodash').extend;
 s.merge       = require('lodash').merge;
 s.moment      = require('moment');
+s.pluralize   = require('pluralize');
 s.slug        = require('uslug');
 s.yargs       = require('yargs').argv;
 s.toTitleCase = require('titlecase');
