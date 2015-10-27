@@ -1,6 +1,6 @@
 {
 "name"         : "smallilies",
-"version"      : "1.3.3",
+"version"      : "1.4.0",
 "description"  : "Freuently used small utilities",
 "main"         : "index.js",
 "dependencies" : {
@@ -8,6 +8,7 @@
 "bluebird"     : "^2.9",
 "lodash"       : "^3.9",
 "moment"       : "^2.10",
+"pluralize"    : "^1.2",
 "titlecase"    : "^1.0",
 "uslug"        : "^1.0",
 "yargs"        : "^3.18",
