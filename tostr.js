@@ -1,6 +1,7 @@
 var elipsesChar = '…';
 
 function tostr(string, startingEnd, endingStart, sep) {
+
     if (!string)
         return '';
 
@@ -17,11 +18,11 @@ function tostr(string, startingEnd, endingStart, sep) {
                 user = userString = 'Anon';
             else {
                 if (user.username || user.name || user.displayName || (user.emails && user.emails[0]))
-                    userString += '[' + tostr(user.username || user.user || user.name || user.displayName || (user.emails && user.emails[0])) + ']';
+                    userString += '[' + tostr(user.username || user.user || user.name || user.displayName || (user.emails && user.emails[0]), startingEnd, endingStart, sep) + ']';
                 if (user.id || user._id)
-                    userString += '(' + tostr(user.id || user._id) + ')';
+                    userString += '(' + tostr(user.id || user._id, startingEnd, endingStart, sep) + ')';
                 if (user.url)
-                    userString += '{' + tostr(user.url, 20) + '}';
+                    userString += '{' + tostr(user.url, startingEnd || 20, endingStart, sep) + '}';
                 user = userString;
             }
             return user;
