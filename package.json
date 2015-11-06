@@ -1,12 +1,15 @@
 {
 "name"         : "smallilies",
-"version"      : "2.0.0",
+"version"      : "2.0.1",
 "description"  : "Small utilities",
 "main"         : "index.js",
 "dependencies" : {
 "babel-core"   : "latest",
 "babel-preset-es2015" : "latest",
 "babel-preset-stage-0" : "latest",
+"babel-preset-stage-1" : "latest",
+"babel-preset-stage-2" : "latest",
+"babel-preset-stage-3" : "latest",
 "async"        : "^0.9",
 "bluebird"     : "^2.9",
 "lodash"       : "^3.9",
