@@ -50,3 +50,5 @@ s.defineProperty(s, 'cwd'   , process.cwd);
 s.defineProperty(s, 'tmpdir', s.os.tmpdir);
 
 require('./async+promise');
+
+s.globalize();

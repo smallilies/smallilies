@@ -8,9 +8,7 @@ function globalize(name, thing) {
         return;
     }
     if (name && name.length && (typeof thing != 'undefined'))
-        defineProperty(global, name, function() {
-            return thing;
-        });
+        defineProperty(global, name, () => thing);
 }
 
 module.exports = globalize;
