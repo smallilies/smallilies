@@ -1,5 +1,4 @@
 var s = module.exports = {};
-
 // NodeJS Built-ins
 s.os      = require('os');
 s.fs      = require('fs');
@@ -18,8 +17,8 @@ require('./cluster-is-master-restarting-worker');
 s.async       = require('async');
 s.Promise     = require('bluebird');
 s._           = require('lodash');
-s.extend      = require('lodash').extend;
-s.merge       = require('lodash').merge;
+s.extend      = ::s._.extend;
+s.merge       = ::s._.merge;
 s.moment      = require('moment');
 s.pluralize   = require('pluralize');
 s.slug        = require('uslug');

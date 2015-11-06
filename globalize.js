@@ -3,7 +3,7 @@ var defineProperty = require('./define-property');
 function globalize(name, thing) {
     if (!arguments.length) {
         var smallilies = require('./');
-        for (key in smallilies)
+        for (let key in smallilies)
             globalize(key, smallilies[key]);
         return;
     }
