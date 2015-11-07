@@ -1,15 +1,9 @@
 {
 "name"         : "smallilies",
-"version"      : "2.0.1",
+"version"      : "3.0.0",
 "description"  : "Small utilities",
-"main"         : "index.js",
+"main"         : "lib",
 "dependencies" : {
-"babel-core"   : "latest",
-"babel-preset-es2015" : "latest",
-"babel-preset-stage-0" : "latest",
-"babel-preset-stage-1" : "latest",
-"babel-preset-stage-2" : "latest",
-"babel-preset-stage-3" : "latest",
 "async"        : "^0.9",
 "bluebird"     : "^2.9",
 "lodash"       : "^3.9",
@@ -19,4 +13,15 @@
 "uslug"        : "^1.0",
 "yargs"        : "^3.18",
 "mkdirp"       : "^0.5"
-}}
+},
+"devDependencies"      : {
+"gulp"                 : "latest",
+"del"                  : "latest",
+"gulp-babel"           : "latest",
+"babel-preset-es2015"  : "latest",
+"babel-preset-stage-0" : "latest",
+"babel-preset-stage-1" : "latest",
+"babel-preset-stage-2" : "latest",
+"babel-preset-stage-3" : "latest"
+}
+}
