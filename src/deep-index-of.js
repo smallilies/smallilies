@@ -51,3 +51,31 @@
         module.exports = deepIndexOf;
 
 })();
+
+
+// function deepIndexOf(array1, array2) {
+//     if (array1 && !(array1 instanceof Array)) array1 = [array1];
+//     if (array2 && !(array2 instanceof Array)) array2 = [array2];
+//     for (let i = 0, il = array1.length, el1; i < il && (el1 = array1[i]); i++)
+//         for (let j = 0, jl = array2.length, el2; j < jl && (el2 = array2[j]); j++)
+//             if (el1.match(el2) || el2.match(el1))
+//                 return parseInt(i + '' + j);
+//             // {
+//             //     let el1matchel2 = el1.match(el2);
+//             //     if(el1matchel2) {
+//             //         // Console.log(el1, 'contains', el2);
+//             //         // Console.log(el1matchel2);
+//             //         return parseInt(i + '' + j);
+//             //     }
+//             //     let el2matchel1 = el2.match(el1);
+//             //     if(el2matchel1) {
+//             //         // Console.log(el2, 'contains', el1);
+//             //         // Console.log(el2matchel1);
+//             //         return parseInt(i + '' + j);
+//             //     }
+//             //     // if (el1.match(el2) || el2.match(el1)) {
+//             //     //     return parseInt(i + '' + j);
+//             //     // }
+//             // }
+//     return -1;
+// }
