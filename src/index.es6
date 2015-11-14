@@ -24,6 +24,8 @@ s.pluralize   = require('pluralize');
 s.slug        = require('uslug');
 s.yargs       = require('yargs').argv;
 s.toTitleCase = require('titlecase');
+s.nconf       = require('nconf').argv().env().file({file: './config.json'});
+
 
 s.fs.mkdirp     = require('mkdirp');
 s.fs.mkdirpSync = s.fs.mkdirp.sync.bind(s.fs.mkdirp);
