@@ -1,17 +1,18 @@
 var s = module.exports = {};
 // NodeJS Built-ins
-s.os      = require('os');
-s.fs      = require('fs');
-s.exec    = require('child_process').exec;
-s.assert  = require('assert');
-s.path    = require('path');
-s.Path    = s.path;
-s.util    = require('util');
-s.URL     = require('url');
-s.argv    = process.argv.slice(2);
-s.rl      = require('readline').createInterface({input: process.stdin, output: process.stdout });
-s.cluster = require('cluster');
+s.os       = require('os');
+s.fs       = require('fs');
+s.exec     = require('child_process').exec;
+s.spawn    = require('child_process').spawn;
+s.assert   = require('assert');
+s.path     = require('path');
+s.Path     = s.path;
+s.util     = require('util');
+s.URL      = require('url');
+s.argv     = process.argv.slice(2);
+s.cluster  = require('cluster');
 require('./cluster-is-master-restarting-worker');
+s.readline = require('readline');
 
 // Popular
 s.async       = require('async');

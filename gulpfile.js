@@ -4,6 +4,8 @@ const babel = require('gulp-babel');
 const replace = require('gulp-replace');
 const changed = require('gulp-changed-in-place');
 
+process.title = 'Gulp smallilies'
+
 gulp.task('clean', done =>
     del('lib', done));
 
