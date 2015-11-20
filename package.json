@@ -1,6 +1,6 @@
 {
 "name"         : "smallilies",
-"version"      : "3.2.2",
+"version"      : "3.2.3b",
 "description"  : "Small utilities",
 "main"         : "lib",
 "dependencies" : {
