@@ -31,8 +31,9 @@ s.nooperr = s.errnoop
 try{
 s.os        = require('os');
 s.fs        = require('fs');
-s.exec      = require('child_process').exec;
-s.spawn     = require('child_process').spawn;
+s.cp        = require('child_process');
+s.exec      = require('./child_process').exec;
+s.spawn     = require('./child_process').spawn;
 s.cluster   = require('cluster');
 s.readline  = require('readline');
 s.fs.mkdirp = require('mkdirp');
