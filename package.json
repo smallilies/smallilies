@@ -1,6 +1,6 @@
 {
 "name"         : "smallilies",
-"version"      : "3.3.0",
+"version"      : "3.5.0",
 "description"  : "Small utilities",
 "main"         : "lib",
 "dependencies" : {
@@ -25,5 +25,21 @@
 "babel-preset-stage-1" : "latest",
 "babel-preset-stage-2" : "latest",
 "babel-preset-stage-3" : "latest"
+},
+"browser"       : {
+"os"            : false,
+"fs"            : false,
+"url1"           : false,
+"child_process" : false,
+"cluster"       : false,
+"readline"      : false,
+"mkdirp"        : false,
+"yargs"         : false,
+"nconf"         : false,
+"./nconf"       : false,
+"really-need"   : false,
+"./really-need" : false,
+"./child_process" : false,
+"./cluster-is-master-restarting-worker" : false
 }
 }
