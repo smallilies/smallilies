@@ -6,6 +6,7 @@
 "dependencies" : {
 "async"        : "^0.9",
 "bluebird"     : "^2.9",
+"debounce"     : "^1.0",
 "lodash"       : "^3.9",
 "moment"       : "^2.10",
 "nconf"        : "^0.8",
