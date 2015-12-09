@@ -1,6 +1,6 @@
 {
 "name"         : "smallilies",
-"version"      : "3.5.0",
+"version"      : "3.6.0",
 "description"  : "Small utilities",
 "main"         : "lib",
 "dependencies" : {
@@ -29,7 +29,6 @@
 "browser"       : {
 "os"            : false,
 "fs"            : false,
-"url1"           : false,
 "child_process" : false,
 "cluster"       : false,
 "readline"      : false,
