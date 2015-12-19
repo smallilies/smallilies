@@ -10,6 +10,7 @@ s.moment      = require('moment');
 s.pluralize   = require('pluralize');
 s.toTitleCase = require('titlecase');
 s.debounce    = require('debounce');
+s.assert      = require('chai').assert;
 
 // Custom
 s.join               = require('./array-join');
@@ -41,7 +42,6 @@ s.cluster   = require('cluster');
 s.readline  = require('readline');
 s.yargs     = require('yargs').argv;
 s.nconf     = require('./nconf');
-s.assert    = require('assert');
 s.path      = require('path');
 s.Path      = s.path;
 s.util      = require('util');

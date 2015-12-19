@@ -5,6 +5,7 @@
 "main"         : "lib",
 "dependencies" : {
 "async"        : "^0.9",
+"chai"         : "^3.4",
 "bluebird"     : "^2.9",
 "debounce"     : "^1.0",
 "lodash"       : "^3.9",
@@ -35,6 +36,7 @@
 "readline"      : false,
 "mkdirp"        : false,
 "yargs"         : false,
+"chai"          : false,
 "nconf"         : false,
 "./nconf"       : false,
 "really-need"   : false,
