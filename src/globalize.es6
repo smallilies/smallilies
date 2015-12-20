@@ -7,8 +7,10 @@ function globalize(name, thing) {
             globalize(key, smallilies[key]);
         return;
     }
-    if (name && name.length && (typeof thing != 'undefined'))
+    if (name && name.length && (typeof thing != 'undefined')) {
+        global[name] = thing;
         defineProperty(global, name, () => thing);
+    }
 }
 
 module.exports = globalize;
