@@ -8,8 +8,12 @@ function globalize(name, thing) {
         return;
     }
     if (name && name.length && (typeof thing != 'undefined')) {
-        global[name] = thing;
-        defineProperty(global, name, () => thing);
+        try {
+            global[name] = thing;
+        } catch (err) {}
+        try {
+            defineProperty(global, name, () => thing);
+        } catch (err) {}
     }
 }
 
