@@ -12,6 +12,7 @@ s.toTitleCase = require('titlecase');
 s.debounce    = require('debounce');
 s.assert      = require('chai').assert;
 s.expect      = require('chai').expect;
+s.notify      = require('./notify');
 
 // Custom
 s.join               = require('./array-join');
