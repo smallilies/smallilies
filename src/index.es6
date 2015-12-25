@@ -11,6 +11,7 @@ s.pluralize   = require('pluralize');
 s.toTitleCase = require('titlecase');
 s.debounce    = require('debounce');
 s.assert      = require('chai').assert;
+s.expect      = require('chai').expect;
 
 // Custom
 s.join               = require('./array-join');
