@@ -13,6 +13,7 @@ s.debounce    = require('debounce');
 s.assert      = require('chai').assert;
 s.expect      = require('chai').expect;
 s.notify      = require('./notify');
+s.argue       = require('argue');
 
 // Custom
 s.join               = require('./array-join');
