@@ -37,7 +37,7 @@ s.nooperr = s.errnoop
 
 // NodeJS Built-ins
 s.os        = require('os');
-s.fs        = require('fs');
+s.fs        = require('./fs');
 s.cp        = require('child_process');
 s.exec      = require('./child_process').exec;
 s.spawn     = require('./child_process').spawn;
@@ -50,7 +50,6 @@ s.Path      = s.path;
 s.util      = require('util');
 s.Url       = require('url');
 s.argv      = process.argv.slice(2);
-s.Promise.promisifyAll(s.fs);
 s.defineProperty(s, 'cwd'   , process.cwd);
 s.defineProperty(s, 'tmpdir', s.os.tmpdir);
 require('./cluster-is-master-restarting-worker');
