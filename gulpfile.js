@@ -1,17 +1,25 @@
-require('unclog')('p');
-process.title = cwd.split(/[\/\\]+/g).slice(2).reverse().join(' ') + ' - Gulp';
+try {
+    require('smallilies');
+    require('unclog')('p');
+    process.title = cwd.split(/[\/\\]+/g).slice(2).reverse().join(' ') + ' - Gulp';
+} catch (err) {
+    _ = require('lodash');
+}
+
 const del = require('del');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const babel = require('gulp-babel');
-const replace = require('gulp-replace');
 const sourcemaps = require('gulp-sourcemaps');
 const changed = require('gulp-changed-in-place');
 
-gulp.task('clean', done =>
+gulp.debouncedWatch = (path, task) =>
+    gulp.watch(path, _.debounce(task, 2000));
+
+gulp.task('_clean', done =>
     del('lib/**/*', done));
 
-gulp.task('babel', done =>
+gulp.task('_babel', done =>
     gulp.src('src/**/*.es6')
     .pipe(changed({firstPass: true}))
     .pipe(sourcemaps.init())
@@ -19,9 +27,42 @@ gulp.task('babel', done =>
     .pipe(sourcemaps.write('.', {sourceRoot: 'src'}))
     .pipe(gulp.dest('lib')));
 
-gulp.task('build', gulp.series('babel'));
+gulp.task('_build',
+    gulp.series('_clean', '_babel'));
 
-gulp.task('watch', done =>
-    gulp.watch('src/**/*.es6', gulp.series('build')));
+gulp.task('_test', done => {
+    try {
+        test.kill();
+        gutil.log('Test [PID:%s] killed', test.pid);
+    } catch (err) {}
+    if (yargs.cls || yargs.clear)
+        process.stdout.write('\u001b[2J\u001b[0;0H');
+    var command = 'node lib/test';
+    test = spawn(command, yargs.grep || yargs.tests || yargs.test);
+    gutil.log('Test [PID:%s] started', test.pid);
+    test.on('exit', code => {
+        if (code !== 0) {
+            gutil.log('Test exited in error, code:', code);
+            notify('Test', 'errored: ' + code);
+        } else {
+            notify('Test', 'finished');
+            done();
+        }
+    });
+    test.on('error', err => {
+        gutil.log('Test error:', err.message);
+        notify('Test', 'errored');
+        done();
+    });
+});
 
-gulp.task('default', gulp.series('clean', 'build', 'watch'));
+gulp.task('test',
+    gulp.series('_build', '_test'));
+
+gulp.task('_watch', done =>
+    gulp.debouncedWatch('src/**/*.es6',
+        gulp.series('_babel', '_test')));
+
+gulp.task('default',
+    gulp.series('_build',
+        gulp.parallel('_watch', '_test')));

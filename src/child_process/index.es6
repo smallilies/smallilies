@@ -2,12 +2,12 @@ import CP     from 'child_process';
 import cspawn from 'cross-spawn-async';
 import kill   from 'tree-kill';
 import _      from 'lodash';
-import argue  from './argue';
+import argue  from '../argue';
 
-export const spawn = function spawn_pipeKillArgsPatched(command, args, options, callback) {
+export const spawn = function spawn_pipeKillArgsPatched(command, args, options) {
     var sig     = argue(arguments);
     var command = sig.getAll('s').join(' ');
-    var args    = sig.getAll('a');
+    var args    = _.flatten(sig.getAll('a'));
     var options = sig.get('o') || {};
 
     [command, args] = patchCommandArgs(command, args);
@@ -21,8 +21,8 @@ export const spawn = function spawn_pipeKillArgsPatched(command, args, options, 
 
 export const exec = function exec_pipeKillArgsPatched(command, options, callback) {
     var sig      = argue(arguments);
-    var command = sig.getAll('s').join(' ');
-    var options = sig.get('o') || {};
+    var command  = sig.getAll('s').join(' ');
+    var options  = sig.get('o') || {};
     var callback = sig.get('f');
 
     var cp = CP.exec(command, options, callback);
