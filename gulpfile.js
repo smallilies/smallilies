@@ -6,12 +6,12 @@ try {
     _ = require('lodash');
 }
 
-const del = require('del');
-const gulp = require('gulp');
-const gutil = require('gulp-util');
-const babel = require('gulp-babel');
+const del        = require('del');
+const gulp       = require('gulp');
+const gutil      = require('gulp-util');
+const babel      = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
-const changed = require('gulp-changed-in-place');
+const changed    = require('gulp-changed-in-place');
 
 gulp.debouncedWatch = (path, task) =>
     gulp.watch(path, _.debounce(task, 2000));
@@ -40,18 +40,12 @@ gulp.task('_test', done => {
     var command = 'node lib/test';
     test = spawn(command, yargs.grep || yargs.tests || yargs.test);
     gutil.log('Test [PID:%s] started', test.pid);
-    test.on('exit', code => {
-        if (code !== 0) {
-            gutil.log('Test exited in error, code:', code);
-            notify('Test', 'errored: ' + code);
-        } else {
-            notify('Test', 'finished');
-            done();
-        }
-    });
-    test.on('error', err => {
-        gutil.log('Test error:', err.message);
-        notify('Test', 'errored');
+    test.then(() => {
+        notify('Smallilies Test', 'finished');
+        done();
+    }).catch(err => {
+        gutil.log('Test error:', err);
+        notify('Smallilies Test', 'errored: ' + err);
         done();
     });
 });
