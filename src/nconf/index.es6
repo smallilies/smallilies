@@ -17,7 +17,7 @@ nconf.get = function nconf_get_caseInsensitive_patch(name) {
         nconf._get(_.camelCase(name)) ||
         nconf._get(_.kebabCase(name)) ||
         nconf._get(_.snakeCase(name)) ||
-        null;
+        undefined;
 };
 
 module.exports = nconf;
