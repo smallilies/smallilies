@@ -9,10 +9,11 @@ import Mocha from 'mocha';
 var mocha = new Mocha({
     ui: 'exports',
     // reporter: 'mocha-clean'
-    timeout: '100s',
+    timeout: '10s',
     grep: argv.join(' '),
 });
 
 mocha.addFile(Path.join(__dirname, './child_process/test'));
+mocha.addFile(Path.join(__dirname, './notify/test'));
 
 mocha.run(::process.exit);

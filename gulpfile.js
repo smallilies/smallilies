@@ -1,8 +1,10 @@
 try {
+    require('babel-polyfill');
     require('smallilies');
     require('unclog')('p');
     process.title = cwd.split(/[\/\\]+/g).slice(2).reverse().join(' ') + ' - Gulp';
 } catch (err) {
+    console.log(err);
     _ = require('lodash');
 }
 
