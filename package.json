@@ -1,6 +1,6 @@
 {
 "name"         : "smallilies",
-"version"      : "3.8.0",
+"version"      : "3.8.1",
 "description"  : "Small utilities",
 "main"         : "lib",
 "dependencies"      : {
@@ -14,6 +14,7 @@
 "lodash"            : "^3.9",
 "moment"            : "^2.10",
 "nconf"             : "^0.8",
+"node-notifier"     : "^4.4",
 "pluralize"         : "^1.2",
 "titlecase"         : "^1.0",
 "uslug"             : "^1.0",
