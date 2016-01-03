@@ -4,11 +4,12 @@ import kill   from 'tree-kill';
 import _      from 'lodash';
 import argue  from '../argue';
 
-export const spawn = function spawn_pipeKillArgsPatched(command, args, options) {
-    var sig     = argue(arguments);
-    var command = sig.getAll('s').join(' ');
-    var args    = _.flatten(sig.getAll('a'));
-    var options = sig.get('o') || {};
+export const spawn = function spawn_pipeKillArgsPatched(command, args, options, callback) {
+    var sig  = argue(arguments);
+    command  = sig.getAll('s').join(' ');
+    args     = _.flatten(sig.getAll('a'));
+    options  = sig.get('o') || {};
+    callback = sig.get('f');
 
     [command, args] = patchCommandArgs(command, args);
 
@@ -16,6 +17,20 @@ export const spawn = function spawn_pipeKillArgsPatched(command, args, options) 
 
     options.stdio || pipeStd(cp)
     patchKill(cp)
+
+    if (callback)
+        cp.on('exit', callback)
+        .on('error', callback);
+
+    var promise = new Promise(function(resolve, reject) {
+        cp
+            .on('exit', code => code ? reject(new Error('Process exited with error code: ' + code)) : resolve())
+            .on('error', reject);
+    });
+
+    cp.then = ::promise.then;
+    cp.catch = ::promise.catch;
+
     return cp;
 }
 
@@ -29,6 +44,7 @@ export const exec = function exec_pipeKillArgsPatched(command, options, callback
 
     options.stdio || pipeStd(cp)
     patchKill(cp)
+
     return cp;
 }
 
